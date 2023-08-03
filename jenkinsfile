@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    tools {
+    maven 'M2'
+    }
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/hari84404/fresh-java-code'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+}
+}
